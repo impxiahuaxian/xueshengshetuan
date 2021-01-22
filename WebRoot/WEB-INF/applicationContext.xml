@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+		</property>
+		<property name="url"
+			value="jdbc:sqlserver://localhost:1433;databaseName=shetuan">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="123456[sa]"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/model/TAdmin.hbm.xml</value>
+			    <value>com/model/TLiuyan.hbm.xml</value>
+			    <value>com/model/TShetuan.hbm.xml</value>
+			    <value>com/model/THuodong.hbm.xml</value>
+			    <value>com/model/TSheyuan.hbm.xml</value>
+			    <value>com/model/TXinwen.hbm.xml</value>
+			    <value>com/model/TBaoming.hbm.xml</value></list>
+		</property>
+	</bean>
+	
+	
+	<bean id="indexAction" class="com.action.indexAction" scope="prototype">
+	</bean>
+	
+	
+	
+	
+	<!-- 后台的登录 -->
+	<bean id="loginService" class="com.service.loginService">
+		<property name="adminDAO">
+			<ref bean="TAdminDAO" />
+		</property>
+		<property name="shetuanDAO">
+			<ref bean="TShetuanDAO" />
+		</property>
+		<property name="sheyuanDAO">
+			<ref bean="TSheyuanDAO" />
+		</property>
+	</bean>
+	
+	
+	<bean id="TAdminDAO" class="com.dao.TAdminDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	<bean id="TShetuanDAO" class="com.dao.TShetuanDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="shetuanAction" class="com.action.shetuanAction" scope="prototype">
+		<property name="shetuanDAO">
+			<ref bean="TShetuanDAO" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	<bean id="THuodongDAO" class="com.dao.THuodongDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="huodongAction" class="com.action.huodongAction" scope="prototype">
+		<property name="huodongDAO">
+			<ref bean="THuodongDAO" />
+		</property>
+		<property name="shetuanDAO">
+			<ref bean="TShetuanDAO" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	<bean id="TXinwenDAO" class="com.dao.TXinwenDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="xinwenAction" class="com.action.xinwenAction" scope="prototype">
+		<property name="xinwenDAO">
+			<ref bean="TXinwenDAO" />
+		</property>
+		<property name="shetuanDAO">
+			<ref bean="TShetuanDAO" />
+		</property>
+	</bean>
+	
+	
+	
+	<bean id="TLiuyanDAO" class="com.dao.TLiuyanDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="liuyanAction" class="com.action.liuyanAction" scope="prototype">
+		<property name="liuyanDAO">
+			<ref bean="TLiuyanDAO" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	<bean id="TSheyuanDAO" class="com.dao.TSheyuanDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="sheyuanAction" class="com.action.sheyuanAction" scope="prototype">
+		<property name="sheyuanDAO">
+			<ref bean="TSheyuanDAO" />
+		</property>
+		
+	</bean>
+	
+	
+	
+	<bean id="TBaomingDAO" class="com.dao.TBaomingDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="baomingAction" class="com.action.baomingAction" scope="prototype">
+		<property name="baomingDAO">
+			<ref bean="TBaomingDAO" />
+		</property>
+	</bean>
+	</beans>

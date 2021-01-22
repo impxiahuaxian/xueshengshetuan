@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC   
+     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+     "http://struts.apache.org/dtds/struts-2.0.dtd">
+     
+     
+<struts>
+    <package name="liu" extends="struts-default">
+        <global-results>
+            <result name="succeed">/common/succeed.jsp</result>
+            <result name="msg">/common/msg.jsp</result>
+        </global-results>
+        
+        <action name="upload" class="com.util.upload" method="upload">
+             <result name="success">/upload/upload_re.jsp</result>
+        </action>
+        
+        <action name="index" class="indexAction" method="index">
+            <result name="success">/qiantai/index.jsp</result>
+        </action>
+        
+        
+        
+        
+        <action name="shetuanAdd" class="shetuanAction" method="shetuanAdd">
+        </action>
+        <action name="shetuanMana" class="shetuanAction" method="shetuanMana">
+             <result name="success">/admin/shetuan/shetuanMana.jsp</result>
+        </action>
+        <action name="shetuanDel" class="shetuanAction" method="shetuanDel">
+        </action>
+        <action name="shetuanEditByMe" class="shetuanAction" method="shetuanEditByMe">
+        </action>
+        <action name="shetuanAll" class="shetuanAction" method="shetuanAll">
+             <result name="success">/qiantai/shetuan/shetuanAll.jsp</result>
+        </action>
+        <action name="shetuanDetailQian" class="shetuanAction" method="shetuanDetailQian">
+             <result name="success">/qiantai/shetuan/shetuanDetailQian.jsp</result>
+        </action>
+        
+        
+        
+        <action name="liuyanAdd" class="liuyanAction" method="liuyanAdd">
+        </action>
+        <action name="liuyanMana" class="liuyanAction" method="liuyanMana">
+             <result name="success">/admin/liuyan/liuyanMana.jsp</result>
+        </action>
+        <action name="liuyanDel" class="liuyanAction" method="liuyanDel">
+        </action>
+        <action name="liuyanHuifu" class="liuyanAction" method="liuyanHuifu">
+        </action>
+        <action name="liuyanDetail" class="liuyanAction" method="liuyanDetail">
+             <result name="success">/qiantai/liuyan/liuyanDetail.jsp</result>
+        </action>
+        <action name="liuyanAll" class="liuyanAction" method="liuyanAll">
+             <result name="success">/qiantai/liuyan/liuyanAll.jsp</result>
+        </action>
+        
+        
+        
+        <action name="huodongAdd" class="huodongAction" method="huodongAdd">
+        </action>
+        <action name="huodongMana" class="huodongAction" method="huodongMana">
+             <result name="success">/admin/huodong/huodongMana.jsp</result>
+        </action>
+        <action name="huodongDel" class="huodongAction" method="huodongDel">
+        </action>
+        <action name="huodongAll" class="huodongAction" method="huodongAll">
+             <result name="success">/qiantai/huodong/huodongAll.jsp</result>
+        </action>
+        <action name="huodongDetailQian" class="huodongAction" method="huodongDetailQian">
+             <result name="success">/qiantai/huodong/huodongDetailQian.jsp</result>
+        </action>
+        
+        
+        <action name="xinwenAdd" class="xinwenAction" method="xinwenAdd">
+        </action>
+        <action name="xinwenMana" class="xinwenAction" method="xinwenMana">
+             <result name="success">/admin/xinwen/xinwenMana.jsp</result>
+        </action>
+        <action name="xinwenDel" class="xinwenAction" method="xinwenDel">
+        </action>
+        <action name="xinwenAll" class="xinwenAction" method="xinwenAll">
+             <result name="success">/qiantai/xinwen/xinwenAll.jsp</result>
+        </action>
+        <action name="xinwenDetailQian" class="xinwenAction" method="xinwenDetailQian">
+             <result name="success">/qiantai/xinwen/xinwenDetailQian.jsp</result>
+        </action>
+        
+        
+        
+        <action name="sheyuanAdd" class="sheyuanAction" method="sheyuanAdd">
+        </action>
+        <action name="sheyuanMana" class="sheyuanAction" method="sheyuanMana">
+             <result name="success">/admin/sheyuan/sheyuanMana.jsp</result>
+        </action>
+        <action name="sheyuanDel" class="sheyuanAction" method="sheyuanDel">
+        </action>
+        <action name="sheyuanDetail" class="sheyuanAction" method="sheyuanDetail">
+             <result name="success">/admin/sheyuan/sheyuanDetail.jsp</result>
+        </action>
+        
+        
+        
+        
+        <action name="baomingAdd" class="baomingAction" method="baomingAdd">
+        </action>
+        <action name="baomingMana" class="baomingAction" method="baomingMana">
+             <result name="success">/admin/baoming/baomingMana.jsp</result>
+        </action>
+        <action name="baomingDel" class="baomingAction" method="baomingDel">
+        </action>
+    </package>
+</struts>
